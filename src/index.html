@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="try">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>Try Angular</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+
+    <script defer src="/js/external/dirPagination.js"></script>
+
+    <script defer src="/js/app/app.module.js"></script>
+    <script defer src="/js/app/app.config.js"></script>
+
+    <script defer src="/js/app/core/post/post.module.js"></script>
+    <script defer src="/js/app/core/post/post.service.js"></script>
+
+    <script defer src="/js/app/blog-detail/blog-detail.module.js"></script>
+    <script defer src="/js/app/blog-detail/blog-detail.component.js"></script>
+    <script defer src="/js/app/blog-list/blog-list.module.js"></script>
+    <script defer src="/js/app/blog-list/blog-list.component.js"></script>
+
+    <script defer src="/js/app/utils/confirm-click/confirm-click.module.js"></script>
+    <script defer src="/js/app/utils/confirm-click/confirm-click.directive.js"></script>
+    <script defer src="/js/app/utils/customer/customer.module.js"></script>
+    <script defer src="/js/app/utils/customer/customer.directive.js"></script>
+
+    <style>
+        .new-class{
+            font-size: 72px;
+        }
+        .other-class{
+            font-size: 32px;
+        }
+        .new-class2{
+            font-size: 120px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container">
+        <h1>Us</h1>
+        <a data-ng-href="/customer">Customer</a>
+    </nav>
+    <div class="container" data-ng-view>
+
+    </div>
+
+</body>
+</html>
