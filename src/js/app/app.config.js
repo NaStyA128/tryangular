@@ -7,20 +7,24 @@
                 $locationProvider.html5Mode({
                     enabled: true,
                 })
-                $routeProvider.
-                when("/", {
+                $routeProvider
+                .when("/", {
                     template: "<blog-list></blog-list>",
-                }).
-                when("/about", {
+                })
+                .when("/about", {
                     templateUrl: "/templates/about.html",
-                }).
-                when("/blog/:id", {
+                })
+                .when("/blog", {
+                    template: "<blog-list></blog-list>",
+//                    redirectTo: "/"
+                })
+                .when("/blog/:id", {
                     template: "<blog-detail></blog-detail>",
-                }).
-                when("/customer", {
+                })
+                .when("/customer", {
                     template: "<customer></customer>",
-                }).
-                otherwise({
+                })
+                .otherwise({
                     template: "Not Found"
                 })
             }

@@ -4,11 +4,11 @@
     angular.module('confirmClick')
         .directive('confirmClick', function(){
             return {
-                restrict: "A",
+                restrict: 'A',
                 link: function(scope, element, attr){
-                    var msg = attr.confirmClick || "Are you sure?";
+                    var msg = attr.confirmClick || 'Are you sure?';
                     var clickAction = attr.confirmedClick;
-                    element.bind("click", function(event){
+                    element.bind('click', function(event){
                         event.stopImmediatePropagation();
                         event.preventDefault();
 

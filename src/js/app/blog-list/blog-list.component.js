@@ -1,13 +1,22 @@
 (function(){
     'use strict';
 
-    angular.module('blogList').
-        component('blogList', {
+    angular.module('blogList')
+        .component('blogList', {
             templateUrl: '/templates/blog-list.html',
             controller: function(Post, $location, $routeParams, $rootScope, $scope){
+//                console.log($location.search());
+                var q = $location.search().q;
+                console.log(q);
+                if (q) {
+                    $scope.query = q;
+                    $scope.searchQuery = true;
+                }
+
+                $scope.order = '-publishDate'
                 $scope.goToItem = function(post){
                     $rootScope.$apply(function(){
-                        $location.path("/blog/" + post.id);
+                        $location.path('/blog/' + post.id);
                     });
                 }
 
@@ -23,11 +32,14 @@
 
                 $scope.loadingQuery = false
                 $scope.$watch(function() {
-                    if($scope.query) {
+                    if ($scope.query) {
                         $scope.loadingQuery = true
                         $scope.cssClass = 'col-sm-12'
+                        if($scope.query != q) {
+                            $scope.searchQuery = false;
+                        }
                     } else {
-                        if($scope.loadingQuery) {
+                        if ($scope.loadingQuery) {
                             setupCol($scope.items, 2);
                             $scope.loadingQuery = false
                         }

@@ -3,21 +3,23 @@
         <div class="page-header">
           <h1>{{ post.title }} <small>{{ post.publishDate }}</small></h1>
         </div>
-
+        <span data-ng-if="post.image">
+            <img data-ng-src="{{ post.image }}" class="img-responsive" alt="" /><br />
+        </span>
         <p>{{ post.description }}</p>
         <hr/>
 
         <h3>Comments</h3>
-        <div class="row">
+        <div class="row" data-ng-show="comments.length > 0">
             <div class="col-sm-6">
-                <input type="text" class="form-control" data-ng-model="query" placeholder="Filter Comments" />
+                <input type="text" class="form-control" data-ng-model="query" placeholder="Filter Comments" /><br />
             </div>
         </div>
-        <ul>
-            <li data-ng-repeat="comment in post.comments | filter: query">
+        <ul data-ng-show="comments.length > 0">
+            <li data-ng-repeat="comment in comments | filter: query">
                 {{ comment.text }}
-                <a href="#" confirm-click="Do you want to delete?" confirmed-click="deleteComment(comment)">Confirm</a>
-                <a href="#" data-ng-click="deleteComment(comment)">Delete</a>
+                <a href="#" class="btn btn-sm btn-default" confirm-click="Do you want to delete?" confirmed-click="deleteComment(comment)">X</a>
+                <!--<a href="#" data-ng-click="deleteComment(comment)">Delete</a>-->
             </li>
         </ul>
         <hr/>

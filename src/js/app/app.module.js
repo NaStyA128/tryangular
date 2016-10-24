@@ -6,11 +6,13 @@
         'angularUtils.directives.dirPagination',
         'ngResource',
         'ngRoute',
+        'ui.bootstrap',
 
         //internal
         'blogDetail',
         'blogList',
         'confirmClick',
-        'customer'
+        'customer',
+        'tryNav'
     ]);
 })();
