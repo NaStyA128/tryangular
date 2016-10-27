@@ -1,5 +1,6 @@
 (function(){
     'use strict';
 
-    angular.module('confirmClick', []);
+    angular
+        .module('confirmClick', []);
 })();

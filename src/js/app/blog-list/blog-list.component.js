@@ -1,11 +1,11 @@
 (function(){
     'use strict';
 
-    angular.module('blogList')
+    angular
+        .module('blogList')
         .component('blogList', {
             templateUrl: '/templates/blog-list.html',
             controller: function(Post, $location, $routeParams, $rootScope, $scope){
-//                console.log($location.search());
                 var q = $location.search().q;
                 console.log(q);
                 if (q) {

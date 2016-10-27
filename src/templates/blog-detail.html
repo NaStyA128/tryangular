@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
         <div class="page-header">
-          <h1>{{ post.title }} <small>{{ post.publishDate }}</small></h1>
+          <h1>{{ $ctrl.post.title }} <small>{{ post.publishDate }}</small></h1>
         </div>
         <span data-ng-if="post.image">
             <img data-ng-src="{{ post.image }}" class="img-responsive" alt="" /><br />

@@ -1,19 +1,22 @@
 (function(){
     'use strict';
 
-    angular.module('blogDetail')
+    angular
+        .module('blogDetail')
         .component('blogDetail', {
             templateUrl: '/templates/blog-detail.html',
-            controller: function(Post, $http, $location, $routeParams, $scope) {
+            controller: function(Post, $http, $location, $routeParams) {
+                var vm = this;
                 Post.query(function(data) {
-                    $scope.notFound = true;
-                    $scope.comments = [];
+                    vm.notFound = true;
+                    vm.comments = [];
                     angular.forEach(data, function(post) {
                         if (post.id == $routeParams.id) {
-                            $scope.notFound = false;
-                            $scope.post = post;
+                            vm.notFound = false;
+                            vm.post = post;
+                            console.log(vm.post);
                             if (post.comments) {
-                                $scope.comments = post.comments;
+                                vm.comments = post.comments;
                             }
                             resetReply();
                         }
@@ -21,33 +24,35 @@
                 });
 
 
-                $scope.deleteComment = function(comment) {
-                    $scope.$apply(
-                        $scope.comments.splice(comment, 1)
+                vm.deleteComment = function(comment) {
+                    vm.$apply(
+                        vm.comments.splice(comment, 1)
                     );
                     // someResource.$delete()
                 }
 
-                $scope.addReply = function() {
-                    console.log($scope.reply);
-                    $scope.comments.push($scope.reply);
-//                    $scope.post.comments.push("abc");
+                vm.addReply = function() {
+                    console.log(vm.reply);
+                    vm.comments.push(vm.reply);
+//                    vm.post.comments.push("abc");
 //                    post.$save();
                     resetReply();
                 }
 
                 function resetReply() {
-                    $scope.reply = {
-                        'id': $scope.comments.length + 1,
+                    vm.reply = {
+                        'id': vm.comments.length + 1,
                         'text': ''
                     }
                 }
 
-                if ($scope.notFound) {
+                if (vm.notFound) {
                     console.log('Not found');
                     //change location
                     $location.path("/");
                 }
+
+//                $scope.vm = vm;
             }
         });
 })();

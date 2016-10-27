@@ -1,5 +1,6 @@
 (function(){
     'use strict';
 
-    angular.module('blogDetail', ['post']);
+    angular
+        .module('blogDetail', ['post']);
 })();

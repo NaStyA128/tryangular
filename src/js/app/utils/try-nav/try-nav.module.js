@@ -1,5 +1,6 @@
 (function(){
     'use strict';
 
-    angular.module('tryNav', ['post', ]);
+    angular
+        .module('tryNav', ['post']);
 })();
